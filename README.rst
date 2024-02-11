@@ -689,6 +689,26 @@ the Google homepage. Scripts can cause additional network requests to be
 performed, as well as modify the page or its layout, causing another round of
 page rendering and painting.
 
+TCP congestion control
+----------------------
+
+When a packet is dropped in a TCP connection, it indicates network congestion or a network problem. The sender then reacts to this event by adjusting its sending rate to avoid further congestion or network instability. This adjustment is known as TCP congestion control.
+
+TCP congestion control algorithms aim to achieve two main goals:
+
+1. **Congestion avoidance:** TCP tries to keep the network operating at maximum capacity without overloading it. This is achieved by gradually increasing the sending rate until packet loss occurs, and then reducing it to alleviate congestion.
+
+2. **Fairness:** TCP should share the available bandwidth fairly with other flows, regardless of the number of connections or their round-trip times.
+
+There are several TCP congestion control algorithms, each with its own approach to adjusting the sending rate. Some common algorithms include:
+
+- **TCP Reno:** This is one of the most widely used algorithms. It uses a slow-start phase to quickly ramp up the sending rate, followed by a congestion avoidance phase where the sending rate is increased more gradually. When packet loss is detected, TCP Reno assumes congestion and cuts the sending rate in half.
+
+- **TCP Cubic:** This algorithm improves on TCP Reno by using a cubic function to adjust the sending rate. It aims to provide better scalability and stability, especially for high-speed and long-distance networks.
+
+These algorithms continuously monitor network conditions, adjust the sending rate accordingly, and adapt to changes in the network environment. By doing so, they help ensure reliable and efficient data transmission over TCP connections.
+
+
 .. _`Creative Commons Zero`: https://creativecommons.org/publicdomain/zero/1.0/
 .. _`"CSS lexical and syntax grammar"`: http://www.w3.org/TR/CSS2/grammar.html
 .. _`Punycode`: https://en.wikipedia.org/wiki/Punycode
